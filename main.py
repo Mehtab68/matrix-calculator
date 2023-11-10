@@ -10,9 +10,10 @@ def userInput():
         constant = input("Enter the constant multiplicated : ")
         constantMultiplication(size1, constant)
     elif choice == "3":
-        return
+        size1 = input("Enter the size of the first matrix : ")
     elif choice == "4":
-        return
+        size1 = input("Enter the size of the matrix : ")
+        transpose(size1)
     elif choice == "5":
         return
     elif choice == "6":
@@ -131,6 +132,29 @@ def constantMultiplication(size1, constant):
     for row in range(Row):
         for column in range(Column):
             print(matrix[row][column] * Constant, end=" ")
+        print()
+
+
+def transpose(size1):
+    Row = int(size1[0])
+    Column = int(size1[2])
+
+    # Initialize matrix
+    matrix = []
+    print("Enter the entries row wise:")
+
+    # For user input
+    # A for loop for row entries
+    for row in range(Row):
+        a = []
+        # A for loop for column entries
+        for column in range(Column):
+            a.append(int(input()))
+        matrix.append(a)
+
+    for row in range(Row):
+        for column in range(Column):
+            print(matrix[column][row], end=" ")
         print()
 
 
