@@ -11,6 +11,7 @@ def userInput():
         constantMultiplication(size1, constant)
     elif choice == "3":
         size1 = input("Enter the size of the first matrix : ")
+        matriceMultiplication(size1)
     elif choice == "4":
         size1 = input("Enter the size of the matrix : ")
         transpose(size1)
@@ -156,6 +157,60 @@ def transpose(size1):
         for column in range(Column):
             print(matrix[column][row], end=" ")
         print()
+
+
+def matriceMultiplication(size1):
+    Row = int(size1[0])
+    Column = int(size1[2])
+
+    # Initialize matrix
+    matrix = []
+    print("Enter the entries row wise:")
+
+    # For user input
+    # A for loop for row entries
+    for row in range(Row):
+        a = []
+        # A for loop for column entries
+        for column in range(Column):
+            a.append(int(input()))
+        matrix.append(a)
+
+    size2 = input("Enter size of second matrix : ")
+    Row1 = int(size2[0])
+    Column1 = int(size2[2])
+
+    # Initialize matrix
+    matrix1 = []
+    print("Enter the entries row wise:")
+
+    # For user input
+    # A for loop for row entries
+    for row in range(Row1):
+        a = []
+        # A for loop for column entries
+        for column in range(Column1):
+            a.append(int(input()))
+        matrix1.append(a)
+
+    if Column != Row1:
+        print("The operation cannot be performed.")
+
+    result = []
+
+    for i in range(Row):
+        a = []
+        for j in range(Column1):
+            a.append(0)
+        result.append(a)
+
+    for i in range(len(matrix)):
+        for j in range(len(matrix1)):
+            for k in range(len(matrix1)):
+                result[i][j] += matrix[i][k] * matrix1[k][j]
+
+    for r in result:
+        print(r)
 
 
 userInput()
