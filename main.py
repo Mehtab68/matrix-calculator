@@ -16,7 +16,10 @@ def userInput():
         size1 = input("Enter the size of the matrix : ")
         transpose(size1)
     elif choice == "5":
-        return
+        size1 = input("Enter the size of the matrix : ")
+        matrix = []
+        createMatrix(size1, matrix)
+        determinant(size1, matrix)
     elif choice == "6":
         return
     elif choice == "7":
@@ -211,6 +214,42 @@ def matriceMultiplication(size1):
 
     for r in result:
         print(r)
+
+
+def determinant(size1, matrix):
+    Row = int(size1[0])
+    Column = int(size1[2])
+
+    if Row != Column:
+        ("The determinant cannot be calculated")
+    elif Row and Column == 1:
+        determinant = matrix[0][0]
+        print("The determinant of this matrix is " + str(determinant))
+    elif Row and Column == 2:
+        determinant = (matrix[0][0] * matrix[1][1]) - (matrix[0][1] * matrix[1][0])
+        print("The determinant of this matrix is " + str(determinant))
+    else:
+        return
+
+
+def createMatrix(size1, matrix):
+    Row = int(size1[0])
+    Column = int(size1[2])
+
+    # Initialize matrix
+
+    print("Enter the entries row wise:")
+
+    # For user input
+    # A for loop for row entries
+    for row in range(Row):
+        a = []
+        # A for loop for column entries
+        for column in range(Column):
+            a.append(int(input()))
+        matrix.append(a)
+
+    return matrix
 
 
 userInput()
