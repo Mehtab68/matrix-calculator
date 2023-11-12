@@ -4,17 +4,31 @@ def userInput():
     choice = input("What operation would you like to choose : ")
     if choice == "1":
         size1 = input("Enter size of first matrix : ")
-        addition(size1)
+        matrix = []
+        createMatrix(size1, matrix)
+        size2 = input("Enter size of second matrix : ")
+        matrix1 = []
+        createMatrix(size2, matrix1)
+        addition(size1, size2, matrix, matrix1)
     elif choice == "2":
         size1 = input("Enter the size of the matrix : ")
         constant = input("Enter the constant multiplicated : ")
-        constantMultiplication(size1, constant)
+        matrix = []
+        createMatrix(size1, matrix)
+        constantMultiplication(size1, matrix, constant)
     elif choice == "3":
-        size1 = input("Enter the size of the first matrix : ")
-        matriceMultiplication(size1)
+        size1 = input("Enter size of first matrix : ")
+        matrix = []
+        createMatrix(size1, matrix)
+        size2 = input("Enter size of second matrix : ")
+        matrix1 = []
+        createMatrix(size2, matrix1)
+        matriceMultiplication(size1, size2, matrix, matrix1)
     elif choice == "4":
         size1 = input("Enter the size of the matrix : ")
-        transpose(size1)
+        matrix = []
+        createMatrix(size1, matrix)
+        transpose(size1, matrix)
     elif choice == "5":
         size1 = input("Enter the size of the matrix : ")
         matrix = []
@@ -23,45 +37,23 @@ def userInput():
     elif choice == "6":
         return
     elif choice == "7":
-        size1 = input("Enter size of first matrix: ")
-        substract(size1)
+        size1 = input("Enter size of first matrix : ")
+        matrix = []
+        createMatrix(size1, matrix)
+        size2 = input("Enter size of second matrix : ")
+        matrix1 = []
+        createMatrix(size2, matrix1)
+        substract(size1, size2, matrix, matrix1)
     else:
         exit()
 
 
-def addition(size1):
+def addition(size1, size2, matrix, matrix1):
     Row = int(size1[0])
     Column = int(size1[2])
 
-    # Initialize matrix
-    matrix = []
-    print("Enter the entries row wise:")
-
-    # For user input
-    # A for loop for row entries
-    for row in range(Row):
-        a = []
-        # A for loop for column entries
-        for column in range(Column):
-            a.append(int(input()))
-        matrix.append(a)
-
-    size2 = input("Enter size of second matrix : ")
     Row1 = int(size2[0])
     Column1 = int(size2[2])
-
-    # Initialize matrix
-    matrix1 = []
-    print("Enter the entries row wise:")
-
-    # For user input
-    # A for loop for row entries
-    for row in range(Row1):
-        a = []
-        # A for loop for column entries
-        for column in range(Column1):
-            a.append(int(input()))
-        matrix1.append(a)
 
     if Row == Row1 and Column == Column1:
         for row in range(Row):
@@ -72,39 +64,12 @@ def addition(size1):
         print("Cannot add matrices together since it is not the same dimensions")
 
 
-def substract(size1):
+def substract(size1, size2, matrix, matrix1):
     Row = int(size1[0])
     Column = int(size1[2])
 
-    # Initialize matrix
-    matrix = []
-    print("Enter the entries row wise:")
-
-    # For user input
-    # A for loop for row entries
-    for row in range(Row):
-        a = []
-        # A for loop for column entries
-        for column in range(Column):
-            a.append(int(input()))
-        matrix.append(a)
-
-    size2 = input("Enter size of second matrix : ")
     Row1 = int(size2[0])
     Column1 = int(size2[2])
-
-    # Initialize matrix
-    matrix1 = []
-    print("Enter the entries row wise:")
-
-    # For user input
-    # A for loop for row entries
-    for row in range(Row1):
-        a = []
-        # A for loop for column entries
-        for column in range(Column1):
-            a.append(int(input()))
-        matrix1.append(a)
 
     if Row == Row1 and Column == Column1:
         for row in range(Row):
@@ -115,23 +80,10 @@ def substract(size1):
         print("Cannot add matrices together since it is not the same dimensions")
 
 
-def constantMultiplication(size1, constant):
+def constantMultiplication(size1, matrix, constant):
     Row = int(size1[0])
     Column = int(size1[2])
     Constant = int(constant[0])
-
-    # Initialize matrix
-    matrix = []
-    print("Enter the entries row wise")
-
-    # For user input
-    # A for loop for row entries
-    for row in range(Row):
-        a = []
-        # A for loop for column entries
-        for column in range(Column):
-            a.append(int(input()))
-        matrix.append(a)
 
     for row in range(Row):
         for column in range(Column):
@@ -139,22 +91,9 @@ def constantMultiplication(size1, constant):
         print()
 
 
-def transpose(size1):
+def transpose(size1, matrix):
     Row = int(size1[0])
     Column = int(size1[2])
-
-    # Initialize matrix
-    matrix = []
-    print("Enter the entries row wise:")
-
-    # For user input
-    # A for loop for row entries
-    for row in range(Row):
-        a = []
-        # A for loop for column entries
-        for column in range(Column):
-            a.append(int(input()))
-        matrix.append(a)
 
     for row in range(Row):
         for column in range(Column):
@@ -162,39 +101,12 @@ def transpose(size1):
         print()
 
 
-def matriceMultiplication(size1):
+def matriceMultiplication(size1, size2, matrix, matrix1):
     Row = int(size1[0])
     Column = int(size1[2])
 
-    # Initialize matrix
-    matrix = []
-    print("Enter the entries row wise:")
-
-    # For user input
-    # A for loop for row entries
-    for row in range(Row):
-        a = []
-        # A for loop for column entries
-        for column in range(Column):
-            a.append(int(input()))
-        matrix.append(a)
-
-    size2 = input("Enter size of second matrix : ")
     Row1 = int(size2[0])
     Column1 = int(size2[2])
-
-    # Initialize matrix
-    matrix1 = []
-    print("Enter the entries row wise:")
-
-    # For user input
-    # A for loop for row entries
-    for row in range(Row1):
-        a = []
-        # A for loop for column entries
-        for column in range(Column1):
-            a.append(int(input()))
-        matrix1.append(a)
 
     if Column != Row1:
         print("The operation cannot be performed.")
