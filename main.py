@@ -141,7 +141,11 @@ def determinant(size1, matrix):
         determinant = (matrix[0][0] * matrix[1][1]) - (matrix[0][1] * matrix[1][0])
         print("The determinant of this matrix is " + str(determinant))
     else:
-        return
+        i = 0
+        for entry in matrix[i]:
+            for j in range(1, len(matrix)):
+                for k in range(1, len(matrix)):
+                    print(matrix[j][k])
 
 
 def createMatrix(size1, matrix):
