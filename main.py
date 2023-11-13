@@ -95,9 +95,18 @@ def transpose(size1, matrix):
     Row = int(size1[0])
     Column = int(size1[2])
 
+    matrix1 = []
+
+    for column in range(Column):
+        a = []
+        # A for loop for column entries
+        for row in range(Row):
+            a.append(0)
+            matrix1.append(a)
+
     for row in range(Row):
         for column in range(Column):
-            print(matrix[column][row], end=" ")
+            print(matrix1[column][row], end="")
         print()
 
 
