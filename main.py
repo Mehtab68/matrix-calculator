@@ -1,3 +1,7 @@
+import numpy as np
+import sys
+
+
 def userInput():
     options = " 1. Add matrices \n 2. Multiply matrix by a constant \n 3. Multiply matrices \n 4. Transpose matrix \n 5. Calculate a determinant \n 6. Inverse Matrix  \n 7. Substract Matrix  \n 0. exit"
     print(options)
@@ -95,19 +99,11 @@ def transpose(size1, matrix):
     Row = int(size1[0])
     Column = int(size1[2])
 
-    matrix1 = []
+    arr = np.array(matrix)
 
-    for column in range(Column):
-        a = []
-        # A for loop for column entries
-        for row in range(Row):
-            a.append(0)
-            matrix1.append(a)
+    arr_tranpose = arr.transpose()
 
-    for row in range(Row):
-        for column in range(Column):
-            print(matrix1[column][row], end="")
-        print()
+    print(arr_tranpose)
 
 
 def matriceMultiplication(size1, size2, matrix, matrix1):
