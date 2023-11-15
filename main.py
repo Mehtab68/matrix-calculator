@@ -139,18 +139,13 @@ def determinant(size1, matrix):
 
     if Row != Column:
         ("The determinant cannot be calculated")
-    elif Row and Column == 1:
-        determinant = matrix[0][0]
-        print("The determinant of this matrix is " + str(determinant))
-    elif Row and Column == 2:
-        determinant = (matrix[0][0] * matrix[1][1]) - (matrix[0][1] * matrix[1][0])
-        print("The determinant of this matrix is " + str(determinant))
     else:
-        i = 0
-        for entry in matrix[i]:
-            for j in range(1, len(matrix)):
-                for k in range(1, len(matrix)):
-                    print(matrix[j][k])
+        arr = np.array(matrix)
+
+        det = np.linalg.det(arr)
+
+    print("\nDeterminant of given matrix:")
+    print(int(det))
 
 
 def createMatrix(size1, matrix):
