@@ -103,7 +103,7 @@ def transpose(size1, matrix):
 
     arr_tranpose = arr.transpose()
 
-    print(arr_tranpose)
+    print(str(arr_tranpose).replace(" [", "").replace("[", "").replace("]", ""))
 
 
 def matriceMultiplication(size1, size2, matrix, matrix1):
