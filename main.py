@@ -39,7 +39,10 @@ def userInput():
         createMatrix(size1, matrix)
         determinant(size1, matrix)
     elif choice == "6":
-        return
+        size1 = input("Enter the size of the matrix : ")
+        matrix = []
+        createMatrix(size1, matrix)
+        inverse(size1, matrix)
     elif choice == "7":
         size1 = input("Enter size of first matrix : ")
         matrix = []
@@ -59,13 +62,13 @@ def addition(size1, size2, matrix, matrix1):
     Row1 = int(size2[0])
     Column1 = int(size2[2])
 
-    if Row == Row1 and Column == Column1:
+    if Row != Row1 or Column != Column1:
+        print("Cannot add matrices together since it is not the same dimensions")
+    else:
         for row in range(Row):
             for column in range(Column):
                 print(matrix[row][column] + matrix1[row][column], end=" ")
             print()
-    else:
-        print("Cannot add matrices together since it is not the same dimensions")
 
 
 def substract(size1, size2, matrix, matrix1):
@@ -166,6 +169,16 @@ def createMatrix(size1, matrix):
         matrix.append(a)
 
     return matrix
+
+
+def inverse(size1, matrix):
+    Row = int(size1[0])
+    Column = int(size1[2])
+
+    arr = np.array(matrix)
+    inverse = np.linalg.inv(arr)
+
+    print(inverse)
 
 
 userInput()
